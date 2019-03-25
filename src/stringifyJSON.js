@@ -23,10 +23,7 @@ var stringifyJSON = function(obj) {
   } else if (obj.constructor === Number) {
   	return obj.toString();
 
-
-
   } else if (obj.constructor === Array) {
-
   	var stringifyArray = function(obj) {
   		var first = obj[0];
 
@@ -35,14 +32,17 @@ var stringifyJSON = function(obj) {
   		}
   		return stringifyJSON(first) + ', ' + stringifyArray(obj.slice(1)); 
   	}
-
   	return ('[' + stringifyArray(obj) + ']');
 
+
+
+
   } else if (obj.constructor === Object) {
+  	var stringifyObject = function(obj) {
 
-  	return '{' + function stringify(obj) {
-
-  	} + '}';
+  		
+  	}
+  	return '{' + stringifyObject(obj) + '}';
   }
 
 
